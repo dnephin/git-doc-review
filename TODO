@@ -1,4 +1,5 @@
 
+- merging and pushing comment lists?
 - gc: how to keep active comment tree and blobs around, but
       allow old ones to be cleaned up
 - how to mark comments as resolve (without losing them)
