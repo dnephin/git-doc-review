@@ -7,6 +7,7 @@ Git
 
 Git handles versioning, merging, and collaboration.
 
+* git-doc-new - setup a new repo for reviewing a document
 * git-doc-review - start reviewing a document
 * git-doc-refresh (fetch, pull, sphinx-build)
 * git-doc-submit (git commit, git push)

@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# git-doc-new - setup a new git-doc repo
+#
+
+set -e
+
+path=$1
+name=$(basename $path)
+
+git init $path
+mkdir -p "$path/comments/"
+python -c "
+from jinja2 import Template
+with open('template/conf.py.tmpl', 'r') as readfile:
+    with open('$path/conf.py', 'w') as writefile:
+        writefile.write(Template(readfile.read()).render(
+            project='${name}',
+            filename='${name}',
+            year='$(date +"%Y")',
+            author='$USER'))
+"
