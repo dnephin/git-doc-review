@@ -20,3 +20,10 @@ with open('template/conf.py.tmpl', 'r') as readfile:
             year='$(date +"%Y")',
             author='$USER'))
 "
+
+touch "$path/$name.rst"
+
+pushd "$path"
+git add "conf.py" "$name.rst"
+git commit -m "Initial commit from git-doc-new."
+popd
