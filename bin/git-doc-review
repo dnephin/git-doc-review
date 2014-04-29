@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# git-doc-review - build the document and open it for review
+#
+
+set -e
+
+BUILD_DIR="_build/html"
+PORT=3035
+URL_PATH="$BUILD_DIR/$(basename `pwd`).html"
+
+sphinx-build -b html -j 4 . "$BUILD_DIR"
+python -m SimpleHTTPServer $PORT 2> /dev/null &
+web_server_pid=$!
+
+# TODO: osx support
+sensible-browser "http://localhost:$PORT/$URL_PATH"
+
+read
+kill $web_server_pid
