@@ -22,8 +22,12 @@ Sphinx and Docutils
 The document format and rendering.
 
 * conf.py
-* add meta-data to each section to be able to reference sections in comments
+* (next version) add meta-data to each section to be able to reference sections in comments
 * read document specific conf.py (name, version, etc)
+* build comments into javascript in the doc
+* extract comment author name/email from git commits
+* use either css or xpath selectors https://code.google.com/p/fbug/source/browse/branches/firebug1.6/content/firebug/lib.js?spec=svn12950&r=8828#1332
+
 
 
 Sphinx Theme
@@ -34,7 +38,6 @@ document. Allows for adding new comments to a doc.
 
 * theme based on sphinx-bootstrap-theme
 * includes editor javascript/html/css
-* extract comment author name/email from git commits
 
 Editor
 ~~~~~~

@@ -2,19 +2,12 @@
 
 needs_sphinx = '1.2'
 
-extensions = []
+extensions = [
+]
 
 templates_path = ['_templates']
 source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
-
-# TODO: import from local project
-# The master toctree document.
-master_doc = 'document'
-project = u'git-doc-sample'
-copyright = u'2014, Daniel Nephin'
-version = '1.0.0'
-release = '1.0.0'
 
 
 exclude_patterns = ['_build']
