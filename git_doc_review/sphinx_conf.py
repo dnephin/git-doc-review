@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 needs_sphinx = '1.2'
 
 extensions = [
 ]
 
-templates_path = ['_templates']
+
+# TODO: use pkg_resources
+templates_path = [
+    os.path.join(os.path.dirname(__file__), 'sphinx_theme', '_templates')
+]
 source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
