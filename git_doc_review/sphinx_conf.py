@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import os
+from functools import partial
 
 needs_sphinx = '1.2'
 
+pkg_path = partial(os.path.join, os.path.dirname(__file__))
+
 extensions = [
+    'git_doc_review.sphinx_ext',
 ]
 
 
 # TODO: use pkg_resources
 templates_path = [
-    os.path.join(os.path.dirname(__file__), 'sphinx_theme', '_templates')
+    pkg_path('sphinx_theme', '_templates'),
 ]
 source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'

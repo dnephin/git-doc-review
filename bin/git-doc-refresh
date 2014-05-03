@@ -9,4 +9,6 @@ BUILD_DIR="_build/html"
 
 git fetch origin -p
 git pull origin master
+
+# TODO: share with git-doc-review
 sphinx-build -b html -j 4 . "$BUILD_DIR"

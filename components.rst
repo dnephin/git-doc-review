@@ -13,7 +13,7 @@ Git handles versioning, merging, and collaboration.
 * git-doc-submit (git commit, git push)
 * commit hook for validating comment format
 
-See :doc:`git-types`
+See :doc:`comments`
 
 
 Sphinx and Docutils

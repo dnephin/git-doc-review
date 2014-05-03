@@ -9,7 +9,9 @@ BUILD_DIR="_build/html"
 PORT=3035
 URL_PATH="$BUILD_DIR/$(basename `pwd`).html"
 
-sphinx-build -b html -j 4 . "$BUILD_DIR"
+sphinx-build -b html . "$BUILD_DIR" *.rst
+sphinx-build -b comments . "$BUILD_DIR" ./comments/*.rst
+
 python -m SimpleHTTPServer $PORT 2> /dev/null &
 web_server_pid=$!
 
