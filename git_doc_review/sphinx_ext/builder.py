@@ -23,6 +23,12 @@ class GitDocReviewBuilder(Builder):
 
 
 
+
+def get_git_committer(filename):
+    """Return author and email from last commit to filename."""
+    # TODO
+
+
 class JsonCommentBuilder(html.JSONHTMLBuilder):
     """Build a directory of comments into a json document.
     
@@ -42,4 +48,6 @@ class JsonCommentBuilder(html.JSONHTMLBuilder):
     # write_doc
     # preapre_writing
 
-    # Things to include in the json
+    def dump_context(self, context, filename):
+        print filename, context
+        #import ipdb; ipdb.set_trace()
