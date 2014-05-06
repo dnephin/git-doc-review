@@ -1,4 +1,5 @@
 
+from docutils import io
 from sphinx.builders import Builder
 from sphinx.builders import html
 
@@ -24,11 +25,12 @@ class GitDocReviewBuilder(Builder):
 
 
 
-def get_git_committer(filename):
+def get_git_commit(filename):
     """Return author and email from last commit to filename."""
     # TODO
 
 
+# TODO: reduce this to only the necessary parts by stripping the base class
 class JsonCommentBuilder(html.JSONHTMLBuilder):
     """Build a directory of comments into a json document.
     
@@ -47,7 +49,23 @@ class JsonCommentBuilder(html.JSONHTMLBuilder):
     # get_outdated_docs
     # write_doc
     # preapre_writing
+    def write(self, build_docnames, update_docnames, method='update'):
+        docnames = self.env.all_docs
+        print "Docnames", docnames
+        print build_docnames, update_docnames, method
 
-    def dump_context(self, context, filename):
-        print filename, context
-        #import ipdb; ipdb.set_trace()
+        self.prepare_writing(build_docnames)
+
+        def build_doc(docname):
+            doctree = self.env.get_doctree(docname)
+            doctree.settings = self.docsettings
+            destination = io.StringOutput(encoding='utf-8')
+            self.docwriter.write(doctree, destination)
+            self.docwriter.assemble_parts()
+            return self.docwriter.parts['fragment']
+
+        doc = [build_doc(d) for d in build_docnames]
+        print doc
+        self.info('doing stuff... ')
+        super(JsonCommentBuilder, self).write(build_docnames, update_docnames, method)
+
