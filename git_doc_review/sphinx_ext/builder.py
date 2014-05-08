@@ -1,7 +1,10 @@
 
+import os.path
+
 from docutils import io
 from sphinx.builders import Builder
 from sphinx.builders import html
+from sphinx.util import osutil
 
 
 class GitDocReviewBuilder(Builder):
@@ -45,15 +48,8 @@ class JsonCommentBuilder(html.JSONHTMLBuilder):
     name    = 'comments'
     out_suffix = '.json'
 
-    # get_target_uri
-    # get_outdated_docs
-    # write_doc
-    # preapre_writing
     def write(self, build_docnames, update_docnames, method='update'):
-        docnames = self.env.all_docs
-        print "Docnames", docnames
-        print build_docnames, update_docnames, method
-
+        # TODO: only rebuild updated?
         self.prepare_writing(build_docnames)
 
         def build_doc(docname):
@@ -64,8 +60,15 @@ class JsonCommentBuilder(html.JSONHTMLBuilder):
             self.docwriter.assemble_parts()
             return self.docwriter.parts['fragment']
 
-        doc = [build_doc(d) for d in build_docnames]
-        print doc
-        self.info('doing stuff... ')
-        super(JsonCommentBuilder, self).write(build_docnames, update_docnames, method)
+        def build_context(docname):
+            body = build_doc(docname)
+            return os.path.basename(docname), dict(body=body)
 
+        self.info('building comments...')
+        context = dict(build_context(name) for name in build_docnames)
+        self.info('doing stuff... ')
+
+        # TODO: get docname from config
+        outfilename = os.path.join(self.outdir, 'comments.json')
+        osutil.ensuredir(os.path.dirname(outfilename))
+        self.dump_context(context, outfilename)

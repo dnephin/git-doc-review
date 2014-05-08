@@ -1,7 +1,6 @@
 
 Version 1
 =========
-* --git commands and hook--
 * sphinx extension
     * custom builder which uses theme for main document, but not for comments
     * comment builder gets author and email from git, and builds a json document
