@@ -14,4 +14,4 @@ source .venv/bin/activate
 pip install -e ../..
 deactivate
 
-
+cp -r ./dev/template/* $repo_name
