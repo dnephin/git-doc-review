@@ -12,5 +12,6 @@ setup(
         'sphinx >= 1.2.2',
         'sphinx-bootstrap-theme >= 0.4',
         'dulwich >= 0.9.6',
+        'Flask >= 0.10.1',
     ], 
 )

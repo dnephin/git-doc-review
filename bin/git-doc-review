@@ -9,6 +9,7 @@ BUILD_DIR="_build/html"
 PORT=3035
 URL_PATH="$BUILD_DIR/$(basename `pwd`).html"
 
+# TODO: this is reading .venv as well
 sphinx-build -b html . "$BUILD_DIR" *.rst
 
 # TODO: this is not right
