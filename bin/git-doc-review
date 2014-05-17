@@ -6,8 +6,8 @@
 set -e
 
 BUILD_DIR="_build/html"
-PORT=3035
-URL_PATH="$BUILD_DIR/$(basename `pwd`).html"
+PORT=5000
+URL_PATH="$(basename `pwd`).html"
 
 # TODO: this is reading .venv as well
 sphinx-build -b html . "$BUILD_DIR" *.rst
@@ -17,11 +17,10 @@ if [[ -n "$(ls comments/*.rst)" ]]; then
     sphinx-build -b comments . "$BUILD_DIR" ./comments/*.rst
 fi
 
-python -m SimpleHTTPServer $PORT 2> /dev/null &
-web_server_pid=$!
-
 # TODO: osx support
-sensible-browser "http://localhost:$PORT/$URL_PATH"
+sensible-browser "http://localhost:$PORT/$URL_PATH" &
+python -m git_doc_review.webapp &
+web_server_pid=$!
 
 read
 kill $web_server_pid
