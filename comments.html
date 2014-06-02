@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comments</title>
+
+    <!-- Bootstrap -->
+    <link href="_static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      div[class^="col-md"] {
+        border: 1px solid #ddd;
+        min-height: 100px;
+      }
+
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- original -->
+      <div class="row original">
+        <div class="col-md-12">
+          This is the original text
+        </div>
+      </div>
+
+      <!-- parent comment -->
+      <div class="row focus-parent">
+        <div class="col-md-2 author">
+          Author
+        </div>
+        <div class="col-md-7">
+          Parent comment
+        </div>
+        <div class="col-md-3">
+          Parent summary
+        </div>
+      </div>
+
+      <!-- focused comment -->
+      <div class="row focus-comment">
+        <div class="col-md-2 author">
+            Author
+        </div>
+        <div class="col-md-10">
+          Focus comment
+
+          <div class="reply">
+          Reply here
+          </div>
+        </div>
+      </div>
+
+      <!-- child comments -->
+      <div class="row focus-details">
+        <div class="col-md-9">
+          <!-- child one -->
+          <div class="row focus-children">
+            <div class="col-md-2 author author-mini">
+              Author
+            </div>
+            <div class="col-md-7">
+              Child comment
+            </div>
+            <div class="col-md-3">
+              mini summary
+            </div>
+          </div>
+          <!-- child two -->
+          <div class="row focus-children">
+            <div class="col-md-2 author author-mini">
+              Author
+            </div>
+            <div class="col-md-7">
+              Child comment
+            </div>
+            <div class="col-md-3">
+              mini summary
+            </div>
+          </div>
+          <!-- child three -->
+          <div class="row focus-children">
+            <div class="col-md-2 author author-mini">
+              Author
+            </div>
+            <div class="col-md-7">
+              Child comment
+            </div>
+            <div class="col-md-3">
+              mini summary
+            </div>
+          </div>
+        </div>
+        <!-- focused summary -->
+        <div class="col-md-3 focus-summary">
+          Focus summary
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="_static/js/bootstrap.min.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>
